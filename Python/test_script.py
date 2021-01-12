@@ -8,7 +8,7 @@ genius.skip_non_songs = True
 genius.excluded_terms = ["(.?Remix)", "(Live)", "(Acoustic Version)"]
 genius.retries = 3
 
-test_list = ["Jason Derulo", "Taco Hemingway"]
+test_list = ["Jason Derulo", "Taco Hemingway", "Quebonafide", "Klocuch"]
 
 
 def save_artists(artists_list):
@@ -16,7 +16,7 @@ def save_artists(artists_list):
         i=0
         while i < 5:
             try:
-                artist_lyrics = genius.search_artist(artist, sort="title", max_songs=5 ,include_features=False, allow_name_change=False)
+                artist_lyrics = genius.search_artist(artist, sort="title", max_songs=10 ,include_features=False, allow_name_change=False)
             except TypeError:
                 print("Type error, retrying...")
                 i += 1
