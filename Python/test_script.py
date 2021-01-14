@@ -1,5 +1,6 @@
 import lyricsgenius
 from time import time
+import json
 GENIUS_ACCESS_TOKEN = ''
 genius = lyricsgenius.Genius(GENIUS_ACCESS_TOKEN)
 
@@ -17,6 +18,9 @@ def save_artists(artists_list):
         while i < 5:
             try:
                 artist_lyrics = genius.search_artist(artist, sort="title", max_songs=10 ,include_features=False, allow_name_change=False)
+                artist_lyrics._body.pop('current_user_metadata')
+                artist_lyrics._body.pop('user')
+                artist_lyrics._body.pop('description_annotation')
             except TypeError:
                 print("Type error, retrying...")
                 i += 1
