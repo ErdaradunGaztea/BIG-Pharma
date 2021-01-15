@@ -17,7 +17,7 @@ genius.skip_non_songs = True
 genius.excluded_terms = ["(.?Remix)", "(Live)", "(Acoustic Version)"]
 genius.retries = 3
 
-test_list = ["Jason Derulo", "Taco Hemingway", "Quebonafide", "Klocuch"]
+test_list = ["Jason Derulo", "Taco Hemingway", "Quebonafide", "Post Malone"]
 
 
 def save_artists(artists_list):
@@ -26,7 +26,7 @@ def save_artists(artists_list):
         while i < DOWNLOAD_RETRIES:
             genius_logger.info("Trying to download data for artist called {0}...".format(artist))
             try:
-                artist_lyrics = genius.search_artist(artist, sort="title", max_songs=10 ,include_features=False, allow_name_change=False)
+                artist_lyrics = genius.search_artist(artist, sort="title", max_songs=100 ,include_features=False, allow_name_change=False)
                 artist_lyrics._body.pop('current_user_metadata')
                 artist_lyrics._body.pop('user')
                 artist_lyrics._body.pop('description_annotation')
