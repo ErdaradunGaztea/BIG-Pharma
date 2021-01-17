@@ -1,0 +1,7 @@
+.\nifi\bin\run-nifi.bat
+
+.\kafka\bin\windows\zookeeper-server-start.bat .\kafka\config\zookeeper.properties
+
+.\kafka\bin\windows\kafka-server-start.bat .\kafka\config\server.properties
+
+.\kafka\bin\windows\kafka-topics.bat --create --zookeeper localhost:2182 --replication-factor 1 --partitions 1 --topic genius
